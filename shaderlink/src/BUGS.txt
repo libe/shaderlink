@@ -1,0 +1,10 @@
+WINDOWS/LINUX
+
+- super flacky imager volume shader support
+- rendering panel settings sometimes are not serialized
+- dirty state does not work on every command that modifies state
+- qt combo boxes in rendering panel (filter) sometimes miss the signal currentIndexChanged
+
+LINUX
+- syntax highlighting SL code doesn't work (QT syntax highlighter class infinite loop when parsing a block)
+- poor graphics view scrolling performance (maybe a driver issue?)

@@ -1,0 +1,21 @@
+<?xml version="1.0"?> 
+
+<node name="invertColor" author="Libero Spagnolini">
+	<help>Invert the color: matte shader.</help>
+	<input>
+		<property name="inColor" type="color"/>		
+	</input>
+	<output>
+		<property name="invertedColor" type="color" />		
+	</output>
+	<code><![CDATA[color $(invertedColor) = color(1 - comp($(inColor), 0),
+												  1 - comp($(inColor), 1),
+												  1 - comp($(inColor), 2));]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[Ci = $(invertedColor); Oi = 1.0;]]>
+			</code>
+		</shader>
+	</preview>	
+</node>

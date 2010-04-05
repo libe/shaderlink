@@ -1,0 +1,20 @@
+<?xml version="1.0"?> 
+
+<node name="noiseF" author="Libero Spagnolini">
+	<help>Simple noise float.</help>
+	<input>
+		<property name="p" type="point" default="point(0.0, 0.0, 0.0)" />
+		<property name="freq" type="float" default="10.0" />		
+	</input>
+	<output>
+		<property name="noise" type="float"/>
+	</output>
+	<code><![CDATA[float $(noise) = noise($(p) * $(freq));]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[Ci = $(noise); Oi = 1.0;]]>
+			</code>
+		</shader>
+	</preview>	
+</node>

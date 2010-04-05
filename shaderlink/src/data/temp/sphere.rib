@@ -1,0 +1,36 @@
+Option "searchpath" "shader" "@:/home/libe/ShaderLink/src/data/shader:/home/libe/ShaderLink/src/data/temp"
+Option "trace" "int maxdepth" 4
+Attribute "visibility" "int trace" [1]
+Attribute "visibility" "int transmission" [1]
+Display "/home/libe/ShaderLink/src/data/temp/surface0.tif" "tiff" "rgb"
+
+Format 134 134 1
+PixelSamples 3 3
+PixelFilter "box" 3 3
+Projection "perspective" "fov" 45
+ShadingRate 4
+
+Attribute "displacementbound" "float sphere" [0.5]
+
+LightSource "distantlight" 1 "intensity" 1.2 "from" [2 2 -2] "to" [0 0 0]
+LightSource "distantlight" 1 "intensity" 0.2 "from" [-8 -8 -2] "to" [0 0 0]
+Translate 0 0 5
+Rotate 45 1 0 0
+Rotate 45 0 0 1
+Scale 1 1 -1
+
+
+
+
+WorldBegin
+ReverseOrientation
+Attribute "visibility" "trace" 1
+Surface "previewChecker"
+Polygon "P" [5 5 -5  5 -5 -5  -5 -5 -5  -5 5 -5] "st" [0 0 1 0 1 1 0 1]
+Scale 1.5 1.5 1.5
+Surface "surface0_surface"
+
+
+
+Sphere 1 -1 1 360
+WorldEnd

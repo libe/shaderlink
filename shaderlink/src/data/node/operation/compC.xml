@@ -1,0 +1,23 @@
+<?xml version="1.0"?> 
+
+<node name="compC" author="Alexei Puzikov">
+	<help>This function get individual color components.</help>
+	<input>
+		<property name="inColor" type="color"/>		
+	</input>
+	<output>
+		<property name="red" type="float" />	
+		<property name="green" type="float" />	
+		<property name="blue" type="float" />			
+	</output>
+	<code><![CDATA[float $(red)= comp($(inColor), 0);
+	float $(green)= comp($(inColor), 1);
+	float $(blue)= comp($(inColor), 2);]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[Ci = color($(red), $(green), $(blue)); Oi = 1.0;]]>
+			</code>
+		</shader>
+	</preview>	
+</node>

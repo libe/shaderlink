@@ -1,0 +1,14 @@
+<?xml version="1.0"?> 
+
+<node name="reflect" author="Konstantin Kharitonov">
+	<help>Return the reflection vector given an incident direction I and a normal vector N.</help>
+	<input>
+		<property name="I" type="vector"/>		
+		<property name="N" type="normal"/>				
+	</input>
+	<output>
+		<property name="outVector" type="vector"/>		
+	</output>
+	<code><![CDATA[vector $(outVector) = reflect($(I), $(N));]]>
+	</code>
+</node>

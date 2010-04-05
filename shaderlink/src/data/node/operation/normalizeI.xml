@@ -1,0 +1,12 @@
+<?xml version="1.0"?> 
+
+<node name="normalizeI" author="Konstantin Kharitonov">
+	<help>Returns normalize(I).</help>
+	<input>	
+	</input>
+	<output>
+		<property name="outV" type="vector"/>		
+	</output>
+	<code><![CDATA[vector $(outV) = normalize(I);]]>
+	</code>
+</node>

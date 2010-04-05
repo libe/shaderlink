@@ -1,0 +1,10 @@
+To install Shaderlink you need Python 2.5, PyQT 4.4.3 and PIL 1.1.6.
+Double click in src/run.py and it should be up and running.
+Shaderlink was developed on Windows but it run with some minor problems under Linux (Fedora 11 tested) and Mac OSX. 
+
+On Windows, you can use the following installers: 
+- Python 2.5 -> http://python.org/download/releases/2.5.2/
+- PyQT -> http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-Py2.5-gpl-4.4.3-1.exe
+- PIL -> http://effbot.org/downloads/PIL-1.1.6.win32-py2.5.exe
+
+On Linux you need the same libraries, please check your distro to find out how to install them.

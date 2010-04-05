@@ -1,0 +1,19 @@
+<?xml version="1.0"?> 
+
+<node name="colorToFloat" author="Libero Spagnolini">
+	<help>Color to float converter.</help>
+	<input>
+		<property name="inColor" type="color" default="color(1.0, 1.0, 1.0)" />
+	</input>
+	<output>
+		<property name="outFloat" type="float"/>
+	</output>
+	<code><![CDATA[float $(outFloat) = (comp($(inColor), 0) + comp($(inColor), 1) + comp($(inColor), 2)) / 3;]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[Ci = $(outFloat); Oi = 1.0;]]>
+			</code>
+		</shader>
+	</preview>
+</node>

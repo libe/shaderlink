@@ -1,0 +1,29 @@
+<?xml version="1.0"?> 
+
+<node name="displacement" type="displacement" author="Libero Spagnolini">
+	<help>Root displacement shader.</help>
+	<input>
+		<property name="P" type="point" default="point(0.0, 0.0, 0.0)" />
+		<property name="N" type="normal" default="normal(1.0, 0.0, 0.0)" />
+	</input>
+	<code><![CDATA[P = $(P); N = $(N);]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[float previewKd = 0.8; float previewKa = 0.2; string texturename = "";
+float diffuse = I.N;
+diffuse = (diffuse*diffuse) / (I.I * N.N);
+
+color texturecolor = ( texturename != "" ) ? texture( texturename ) : 1;
+
+Ci = Cs * ( previewKa + previewKd*diffuse ) * texturecolor;
+Oi = Os;
+
+Ci *= Oi;]]>
+			</code>
+		</shader>
+		<shader type="displacement">
+			<code></code>
+		</shader>
+	</preview>	
+</node>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<node name="color" author="Libero Spagnolini">
+	<help>Simple color builder in RGB space.</help>
+	<input>
+		<property name="red" type="float" default="1.0" />
+		<property name="green" type="float" default="1.0" />
+		<property name="blue" type="float" default="1.0" />
+	</input>
+	<output>
+		<property name="outColor" type="color"/>
+	</output>
+	<code><![CDATA[color $(outColor) = color($(red), $(green), $(blue));]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[Ci = $(outColor); Oi = 1;]]></code>
+		</shader>
+	</preview>		
+</node>

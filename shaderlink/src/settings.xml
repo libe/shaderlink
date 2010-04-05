@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<renderers>
+  <renderer name="PRMan">
+    <compileTool>/opt/pixar/RenderManProServer-15.0/bin/shader</compileTool>
+    <renderTool>/opt/pixar/RenderManProServer-15.0/bin/prman</renderTool>
+  </renderer>
+  <renderer name="3Delight">
+    <compileTool>/opt/3Delight/bin/shaderdl</compileTool>
+    <renderTool>/opt/3Delight/bin/renderdl</renderTool>
+  </renderer>  
+</renderers>  

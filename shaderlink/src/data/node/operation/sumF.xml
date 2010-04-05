@@ -1,0 +1,20 @@
+<?xml version="1.0"?> 
+
+<node name="sumF" author="Libero Spagnolini">
+	<help>Sum two floats.</help>
+	<input>
+		<property name="inValue1" type="float"/>		
+		<property name="inValue2" type="float"/>		
+	</input>
+	<output>
+		<property name="outValue" type="float" />		
+	</output>
+	<code><![CDATA[float $(outValue) = $(inValue1) + $(inValue2);]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[Ci = $(outValue); Oi = 1.0;]]>
+			</code>
+		</shader>
+	</preview>			
+</node>

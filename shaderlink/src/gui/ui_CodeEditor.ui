@@ -1,0 +1,58 @@
+<ui version="4.0" >
+ <class>CodeEditor</class>
+ <widget class="QWidget" name="CodeEditor" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>622</width>
+    <height>555</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Code Editor</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3" >
+   <item>
+    <widget class="QSplitter" name="splitter" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QGroupBox" name="groupBox" >
+      <property name="title" >
+       <string>Nodes</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout" >
+       <item>
+        <widget class="QListWidget" name="nodesLW" />
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2" >
+      <property name="title" >
+       <string>Code</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2" >
+       <item>
+        <widget class="QTabWidget" name="tabWidget" >
+         <widget class="QWidget" name="tab" >
+          <attribute name="title" >
+           <string>Tab 1</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="tab_2" >
+          <attribute name="title" >
+           <string>Tab 2</string>
+          </attribute>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,15 @@
+Software:
+Libero Spagnolini (Libe) (libero.spagnolini@gmail.com)
+
+Logo:
+Alberto Cerutti
+
+Shaderlink took some ideas from the following tools:
+- ShaderMan: http://www.dream.com.ua/theoldtool.html
+   - XML node datastructure was heavily inspired by ShaderMan's one.
+   - Variables replace mechanism in code generation
+   - Some shader net examples were ported
+- Sler: 
+   - Some shader net examples were ported
+- Mental mill:
+   - Zoom in render area

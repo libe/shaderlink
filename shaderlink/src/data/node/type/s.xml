@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<node name="s" author="Libero Spagnolini">
+	<help>Renderer texture coordinate s.</help>
+	<output>
+		<property name="s" type="float"/>
+	</output>
+	<code><![CDATA[float $(s) = s;]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[Ci = color "rgb" (s, 0, 0);	Oi = 1;]]></code>
+		</shader>
+	</preview>			
+</node>

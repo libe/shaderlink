@@ -1,0 +1,33 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+	<qresource>
+		<file alias="newProject.png">./images/newProject.png</file>
+		<file alias="openProject.png">./images/openProject.png</file>
+		<file alias="saveProject.png">./images/saveProject.png</file>
+		<file alias="saveAsProject.png">./images/saveAsProject.png</file>
+		<file alias="exit.png">./images/exit.png</file>
+		<file alias="copy.png">./images/copy.png</file>
+		<file alias="paste.png">./images/paste.png</file>
+		<file alias="undo.png">./images/undo.png</file>
+		<file alias="redo.png">./images/redo.png</file>
+		<file alias="delete.png">./images/delete.png</file>
+		<file alias="viewAll.png">./images/viewAll.png</file>
+		<file alias="error.png">./images/error.png</file>
+		<file alias="information.png">./images/information.png</file>
+		<file alias="render.png">./images/render.png</file>		
+		<file alias="console.png">./images/console.png</file>
+		<file alias="rendering.png">./images/rendering.png</file>
+		<file alias="library.png">./images/library.png</file>
+		<file alias="properties.png">./images/properties.png</file>
+		<file alias="messages.png">./images/messages.png</file>
+		<file alias="node.png">./images/node.png</file>
+		<file alias="codeEditor.png">./images/codeEditor.png</file>
+		<file alias="codeGenerator.png">./images/codeGenerator.png</file>
+		<file alias="recentFile.png">./images/recentFile.png</file>
+		<file alias="shaderLink.png">./images/shaderLink.png</file>
+		<file alias="hidePreview.png">./images/hidePreview.png</file>
+		<file alias="preview.png">./images/preview.png</file>
+		<file alias="logo.png">./images/logo.png</file>
+		<file alias="about.png">./images/about.png</file>
+	</qresource>
+</RCC>

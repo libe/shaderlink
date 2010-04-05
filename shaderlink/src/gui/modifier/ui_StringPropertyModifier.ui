@@ -1,0 +1,59 @@
+<ui version="4.0" >
+ <class>StringPropertyModifier</class>
+ <widget class="QWidget" name="StringPropertyModifier" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>232</width>
+    <height>54</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>232</width>
+    <height>54</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>232</width>
+    <height>54</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="spacing" >
+    <number>0</number>
+   </property>
+   <property name="leftMargin" >
+    <number>0</number>
+   </property>
+   <property name="topMargin" >
+    <number>0</number>
+   </property>
+   <property name="rightMargin" >
+    <number>0</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="propGroupBox" >
+     <property name="title" >
+      <string>String</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <item>
+       <widget class="QLineEdit" name="stringEdit" />
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

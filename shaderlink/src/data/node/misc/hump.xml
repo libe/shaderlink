@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<node name="hump" author="Libero Spagnolini">
+	<help>Hump by an offset value.</help>
+	<include>
+		<file name="filterwidth.h"/>
+		<file name="filtered.h"/>	
+	</include>
+	<input>
+		<property name="value" type="float" default="0.0" />
+		<property name="km" type="float" default="0.4" />		
+	</input>
+	<output>
+		<property name="outPoint" type="point"/>
+		<property name="outNormal" type="normal"/>
+	</output>
+	<internal>
+		<variable name="i"/>
+		<variable name="PP"/>
+		<variable name="size"/>
+		<variable name="magnitude"/>
+		<variable name="Ndiff"/>
+		<variable name="fw"/>
+	</internal>
+	<code><![CDATA[normal $(Ndiff) = normalize(N) - normalize(Ng);
+point $(outPoint) = P - $(km) * $(value) * normalize(N);
+normal $(outNormal) = calculatenormal($(outPoint)) + $(Ndiff);]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[float previewKd = 0.8; float previewKa = 0.2; string texturename = "";
+float diffuse = I.N;
+diffuse = (diffuse*diffuse) / (I.I * N.N);
+
+color texturecolor = ( texturename != "" ) ? texture( texturename ) : 1;
+
+Ci = Cs * ( previewKa + previewKd*diffuse ) * texturecolor;
+Oi = Os;
+
+Ci *= Oi;]]>
+			</code>
+		</shader>
+		<shader type="displacement">
+			<code><![CDATA[P = $(outPoint); N = $(outNormal);]]>
+			</code>
+		</shader>
+	</preview>	
+</node>
