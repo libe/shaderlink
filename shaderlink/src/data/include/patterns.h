@@ -8,7 +8,7 @@
  *   _Advanced RenderMan: Creating CGI for Motion Picture_, 
  *   by Anthony A. Apodaca and Larry Gritz, Morgan Kaufmann, 1999.
  *
- * $Revision: 1.1 $    $Date: 2007/07/17 18:39:27 $
+ * $Revision: 1.1 $    $Date: 2000/08/28 01:30:35 $
  *
  ************************************************************************/
 
