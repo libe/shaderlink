@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<node name="texture" author="Libero Spagnolini">
+	<help>Loads file texture, given projection and space</help>
+	<include>
+		<file name="project.h"/>
+	</include>	
+	<input>	
+		<property name="fileName" type="string" default="/home/libe/workspace/ShaderLink/src/data/shader/texture.tex"/>
+		<property name="projType" type="string" default="spherical"/>
+		<property name="projSpace" type="string" default="shader" />
+		<property name="offsetMatrix" type="matrix" default="matrix(1.0,0.0,0.0,0.0, 0.0,1.0,0.0,0.0, 0.0,0.0,1.0,0.0, 0.0,0.0,0.0,1.0)" />
+		<property name="blur" type="float" default="0.0" />
+	</input>
+	<output>
+		<property name="outColor" type="color"/>
+		<property name="outAlpha" type="float"/>
+	</output>
+	<code><![CDATA[
+
+	float $(outAlpha);
+	color $(outColor) = GetColorTextureAndAlpha($(fileName), 
+												  $(projType), 
+												  P,
+												  $(projSpace), 
+												  $(offsetMatrix), 
+												  $(blur),
+												  3,
+												  $(outAlpha));
+]]>
+	</code>
+	<preview>
+		<shader type="surface">
+			<code><![CDATA[Ci = $(outColor);Oi = $(outAlpha);]]>
+			</code>
+		</shader>
+	</preview>	
+</node>
