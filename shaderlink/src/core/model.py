@@ -232,8 +232,9 @@ class MatrixProperty(Property):
                 raise Exception('Cannot parse matrix property %s values' % (self.name))        
 
     def valueToStr(self):
-        return 'matrix(' + ''.join('%.3f' % f + ',' for f in self.value[: - 1]) + '%.3f' % self.value[ - 1] + ')'
-
+        flatMat = sum(self.value, [])
+        return 'matrix(' + ''.join('%.3f' % f + ',' for f in flatMat[: - 1]) + '%.3f' % flatMat[ - 1] + ')'
+        
     def copy(self):
         newMatrixProperty = MatrixProperty()
         
@@ -533,7 +534,7 @@ class StringProperty(Property):
         return str
 
     def valueToStr(self):
-        return str(self.value)
+        return '"' + str(self.value) + '"'
 
     def copy(self):
         newStringProperty = StringProperty()
@@ -1062,12 +1063,6 @@ class Node(object):
             previewCode = previewCode.replace('$(%s)' % outputProp.name, name)        
             
         return previewCode    
-    
-    def __str__( object ):
-        return self.name;
-
-    def __repr__( object ):
-        return object.name;
                                             
 class Link(object):
     id = 0
@@ -1123,6 +1118,9 @@ class ShaderLink(QtCore.QObject):
         self.renderers = []
         self.currentRendererIndex = 0;
         
+        # self folder list
+        self.skipFolders = []
+        
         # paths
         self.paths = {}
         
@@ -1165,13 +1163,16 @@ class ShaderLink(QtCore.QObject):
         # node library path
         pathNodeLibrary = self.paths['node']
         
-        # node library is a dictionary like this: self.nodeLibrary[dir][nodeName] = node
-        for (thisDir, subsHere, filesHere) in os.walk(pathNodeLibrary):
-            for subHere in subsHere:
-                self.nodeLibrary[os.path.basename(subHere)] = {}
+        # self folder skip list
+        self.skipFolders = self.parseSkipFoldersSettings()    
         
         for (thisDir, subsHere, filesHere) in os.walk(pathNodeLibrary):
-            for filename in filesHere:
+            for subHere in subsHere:
+                if subHere in self.skipFolders:
+                    continue
+                else:
+                    self.nodeLibrary[os.path.basename(subHere)] = {}
+            for filename in filesHere:                    
                 if filename.endswith('.xml'):
                     fullname = os.path.join(thisDir, filename)
                     print 'Loading node: ' + fullname
@@ -1205,8 +1206,8 @@ class ShaderLink(QtCore.QObject):
         self.renderingSettings['Imager'] = [['None'], 0]
         
         # renderers
-        self.renderers = self.parseRendererSettings()        
-        
+        self.renderers = self.parseRendererSettings()
+                
         # notify guys interest in this stuff
         self.fireRenderingSettingsLoaded()
         
@@ -1222,6 +1223,12 @@ class ShaderLink(QtCore.QObject):
             renderers.append({'name' : name, 'compileTool' : compileTool, 'renderTool' : renderTool})
                             
         return renderers
+
+    def parseSkipFoldersSettings(self):
+        from xml.dom import minidom
+        dom = minidom.parse(os.path.join(self.paths['root'], 'settings.xml'))
+        skipFoldersStr = dom.getElementsByTagName('skipFolders')[0].firstChild.data        
+        return [s.strip() for s in skipFoldersStr.split(',')];
 
     def fireRenderingSettingsLoaded(self):
         self.emit(QtCore.SIGNAL('renderingSettingsLoaded'), self.renderingSettings)
@@ -1252,8 +1259,8 @@ class ShaderLink(QtCore.QObject):
         node.gfxNode.setPos(dropPos)    
         
         # update node id
-	if self.nodes.keys():    
-		node.id = max(self.nodes.keys()) + 1
+        if self.nodes.keys():    
+            node.id = max(self.nodes.keys()) + 1
         
         # add node
         self.addNode(node)                
