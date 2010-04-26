@@ -650,33 +650,33 @@ class SLHighlighter(QtGui.QSyntaxHighlighter):
         self.highlightingRules.append(functionRule)
         
     def highlightBlock(self, text):        
-	# apply rules
+        # apply rules
         for rule in self.highlightingRules:
             expression = QtCore.QRegExp(rule[0])
-	    index = text.indexOf(expression)
+            index = expression.indexIn(text)
             while index >= 0:
                 length = expression.matchedLength()
                 self.setFormat(index, length, rule[1])
-                index = text.indexOf(expression, index + length)
+                index = expression.indexIn(text, index + length)
                 
         self.setCurrentBlockState(0)
 
         # multiline comment handling 
         startIndex = 0;
         if self.previousBlockState() != 1:
-            startIndex = text.indexOf(self.commentStartExpression)
+            startIndex = self.commentStartExpression.indexIn(text)
 
         while startIndex >= 0:
-            endIndex = text.indexOf(self.commentEndExpression, startIndex)
+            endIndex = self.commentEndExpression.indexIn(text, startIndex)
             commentLength = 0
             if endIndex == -1:
-                 self.setCurrentBlockState(1)
-                 commentLength = text.length() - startIndex
+                self.setCurrentBlockState(1)
+                commentLength = text.length() - startIndex
             else:
-                 commentLength = endIndex - startIndex + self.commentEndExpression.matchedLength()
+                commentLength = endIndex - startIndex + self.commentEndExpression.matchedLength()
 
             self.setFormat(startIndex, commentLength, self.multiLineCommentFormat)
-            startIndex = text.indexOf(self.commentStartExpression,
+            startIndex = self.commentStartExpression.indexIn(text,
                                       startIndex + commentLength)
 		
 class TabWidgetFilter(QtCore.QObject):
@@ -724,7 +724,7 @@ class CodeEditorDialogController(QtCore.QObject):
              editor.setLineWrapMode(QtGui.QTextEdit.NoWrap)
              
              # add syntax highlighting
-             #highlighter = SLHighlighter(editor.document())
+             highlighter = SLHighlighter(editor.document())
              self.codeEditorDialog.editors[node.name] = editor
     
     def onSetNodes(self, nodes):
