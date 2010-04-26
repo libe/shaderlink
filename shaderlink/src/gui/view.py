@@ -551,7 +551,7 @@ class CodeGeneratorDialog(QtGui.QDialog,
         # add syntax highlighting
         self.codeEdit.setReadOnly(True)
         from controller import SLHighlighter
-        #highlighter = SLHighlighter(self.codeEdit.document())
+        highlighter = SLHighlighter(self.codeEdit.document())
 
     def connectSignals(self):
         self.connect(self.shadersLW, QtCore.SIGNAL('currentRowChanged(int)'), 
