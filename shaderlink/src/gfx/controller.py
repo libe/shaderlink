@@ -119,7 +119,11 @@ class GfxPanelIdleState(GfxPanelState):
         QtGui.QGraphicsView.mouseReleaseEvent(self.controller.gfxPanel, event)
         
     def onWheelEvent(self, event):
-        self.controller.scaleView(math.pow(2.0, -event.delta() / 600.0))
+        scale = -1.0
+        import sys
+        if 'linux' in sys.platform:
+            scale = 1.0     
+        self.controller.scaleView(math.pow(2.0, scale * event.delta() / 600.0))
         
     def onKeyPressEvent(self, event):  
         QtGui.QGraphicsView.keyPressEvent(self.controller.gfxPanel, event)
