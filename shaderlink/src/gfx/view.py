@@ -153,6 +153,10 @@ class GfxNode(QtGui.QGraphicsItem):
     def __init__(self, node):
         QtGui.QGraphicsItem.__init__(self)        
         
+        # flag (new from QT 4.6...)
+        self.setFlag(QtGui.QGraphicsItem.ItemSendsScenePositionChanges)
+        self.setFlag(QtGui.QGraphicsItem.ItemSendsGeometryChanges)
+        
         # wrapped node
         self.node = node
                         
