@@ -1,6 +1,6 @@
 # Shaderlink
 
-*Note:* As google code is shutting down I needed to to find a place to host this great side project I made while in college so I guess github fits the bill pretty well.
+*Note:* As google code is shutting down I needed to to find a place to host this great (?!!) side project I made while in college so I guess github fits the bill pretty well. 
 
 Shaderlink is a RenderMan shader authoring tool. It lets you build shaders by placing shading nodes and connecting them through links. It was inspired by similar tools like Sler, ShaderMan and mental mill.
 
@@ -29,3 +29,7 @@ A *big* thank you to:
   * Jo
   * Yuri
   * Guy
+
+![](https://raw.githubusercontent.com/libe/shaderlink/master/images/shaderlink2.png)
+
+![](https://raw.githubusercontent.com/libe/shaderlink/master/images/shaderlink6.png)
