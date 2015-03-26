@@ -1,6 +1,6 @@
 # Shaderlink
 
-Note: As google code is shutting down I needed to to find a place to host the great side project I made while in college so I guess github fit bill pretty well.
+*Note:* As google code is shutting down I needed to to find a place to host the great side project I made while in college so I guess github fit bill pretty well.
 
 
 Shaderlink is a RenderMan shader authoring tool. It lets you build shaders by placing shading nodes and connecting them through links. It was inspired by similar tools like Sler, ShaderMan and mental mill.
@@ -21,7 +21,7 @@ Libraries needed:
   * Python 2.6 (http://www.python.org)
   * PIL (Python Image Library) (http://www.pythonware.com/products/pil/)
 
-=A *big* thank you to:=
+A *big* thank you to:
   * Alexei
   * Dylan 
   * Wendy  
